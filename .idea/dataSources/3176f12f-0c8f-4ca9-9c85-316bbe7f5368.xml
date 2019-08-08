@@ -34,10 +34,11 @@
       <ObjectId>16386</ObjectId>
       <StateNumber>570</StateNumber>
       <Owner>syun</Owner>
-      <IntrospectionStateNumber>593</IntrospectionStateNumber>
+      <IntrospectionStateNumber>612</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|16468|16470|1
+sequence|table|16479|16481|1
 </Relations>
     </database>
     <database id="8" parent="1" name="taskleaf_test">
@@ -128,7 +129,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>359</StateNumber>
       <Owner>syun</Owner>
-      <IntrospectionStateNumber>594</IntrospectionStateNumber>
+      <IntrospectionStateNumber>613</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -196,84 +197,97 @@
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <table id="32" parent="23" name="ar_internal_metadata">
+    <sequence id="32" parent="23" name="users_id_seq">
+      <ObjectId>16479</ObjectId>
+      <StateNumber>603</StateNumber>
+      <Owner>syun</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="33" parent="23" name="ar_internal_metadata">
       <ObjectId>16460</ObjectId>
       <Owner>syun</Owner>
       <StateNumber>588</StateNumber>
     </table>
-    <table id="33" parent="23" name="schema_migrations">
+    <table id="34" parent="23" name="schema_migrations">
       <ObjectId>16388</ObjectId>
       <Owner>syun</Owner>
       <StateNumber>572</StateNumber>
     </table>
-    <table id="34" parent="23" name="tasks">
+    <table id="35" parent="23" name="tasks">
       <ObjectId>16470</ObjectId>
       <Owner>syun</Owner>
       <StateNumber>589</StateNumber>
     </table>
-    <column id="35" parent="32" name="key">
+    <table id="36" parent="23" name="users">
+      <ObjectId>16481</ObjectId>
+      <Owner>syun</Owner>
+      <StateNumber>611</StateNumber>
+    </table>
+    <column id="37" parent="33" name="key">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>588</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="36" parent="32" name="value">
+    <column id="38" parent="33" name="value">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>588</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="37" parent="32" name="created_at">
+    <column id="39" parent="33" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>588</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="38" parent="32" name="updated_at">
+    <column id="40" parent="33" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>588</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="39" parent="32" name="ar_internal_metadata_pkey">
+    <index id="41" parent="33" name="ar_internal_metadata_pkey">
       <ObjectId>16466</ObjectId>
       <StateNumber>588</StateNumber>
       <ColNames>key</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="40" parent="32" name="ar_internal_metadata_pkey">
+    <key id="42" parent="33" name="ar_internal_metadata_pkey">
       <ObjectId>16467</ObjectId>
       <StateNumber>588</StateNumber>
       <ColNames>key</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>ar_internal_metadata_pkey</UnderlyingIndexName>
     </key>
-    <column id="41" parent="33" name="version">
+    <column id="43" parent="34" name="version">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>572</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="42" parent="33" name="schema_migrations_pkey">
+    <index id="44" parent="34" name="schema_migrations_pkey">
       <ObjectId>16394</ObjectId>
       <StateNumber>572</StateNumber>
       <ColNames>version</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="43" parent="33" name="schema_migrations_pkey">
+    <key id="45" parent="34" name="schema_migrations_pkey">
       <ObjectId>16395</ObjectId>
       <StateNumber>572</StateNumber>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>schema_migrations_pkey</UnderlyingIndexName>
     </key>
-    <column id="44" parent="34" name="id">
+    <column id="46" parent="35" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -281,45 +295,117 @@
       <DefaultExpression>nextval(&apos;tasks_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="45" parent="34" name="name">
+    <column id="47" parent="35" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>589</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>597</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="46" parent="34" name="description">
+    <column id="48" parent="35" name="description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <StateNumber>589</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="47" parent="34" name="created_at">
+    <column id="49" parent="35" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>589</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="48" parent="34" name="updated_at">
+    <column id="50" parent="35" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>589</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="49" parent="34" name="tasks_pkey">
+    <index id="51" parent="35" name="tasks_pkey">
       <ObjectId>16477</ObjectId>
       <StateNumber>589</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="50" parent="34" name="tasks_pkey">
+    <key id="52" parent="35" name="tasks_pkey">
       <ObjectId>16478</ObjectId>
       <StateNumber>589</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>tasks_pkey</UnderlyingIndexName>
+    </key>
+    <column id="53" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="54" parent="36" name="name">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="55" parent="36" name="email">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="56" parent="36" name="password_digest">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="57" parent="36" name="created_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="58" parent="36" name="updated_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>603</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="59" parent="36" name="admin">
+      <Position>7</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>611</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="60" parent="36" name="users_pkey">
+      <ObjectId>16488</ObjectId>
+      <StateNumber>603</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="61" parent="36" name="index_users_on_email">
+      <ObjectId>16490</ObjectId>
+      <StateNumber>603</StateNumber>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="36" name="users_pkey">
+      <ObjectId>16489</ObjectId>
+      <StateNumber>603</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
